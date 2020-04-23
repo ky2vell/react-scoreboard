@@ -32,7 +32,8 @@ button {
   padding: 1rem 2rem;
   margin: 0;
   text-decoration: none;
-  background: #414141;
+  background: #cc0f0f;
+  box-shadow: 2px 2px 5px #000000;
   color: #ffffff;
   font-family: inherit;
   font-size: 1.6rem;
