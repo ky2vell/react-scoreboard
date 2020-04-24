@@ -1,48 +1,60 @@
-import React, { useState } from "react";
-import "./App.css";
-import TopRow from "./components/TopRow";
-import BottomRow from "./components/BottomRow";
-import Button from "./components/Button";
+import React, { useState } from 'react'
+import './App.css'
+import TopRow from './components/TopRow'
+import BottomRow from './components/BottomRow'
+import Button from './components/Button'
 
 function App() {
+  const [homeScore, setHomeScore] = useState(0)
+  const [awayScore, setAwayScore] = useState(0)
 
-  const [homeScore, setHomeScore] = useState(0);
-  const [awayScore, setAwayScore] = useState(0);
+  const homeTouchDown = () => {
+    setHomeScore(homeScore + 7)
+  }
+  const homeFieldGoal = () => {
+    setHomeScore(homeScore + 3)
+  }
+  const awayTouchDown = () => {
+    setAwayScore(awayScore + 7)
+  }
+  const awayFieldGoal = () => {
+    setAwayScore(awayScore + 3)
+  }
 
   return (
-    <div className="container">
-      <section className="scoreboard">
+    <div className='container'>
+      <section className='scoreboard'>
         <TopRow homeScore={homeScore} awayScore={awayScore} />
         <BottomRow />
       </section>
-      <section className="buttons">
-        <div className="homeButtons">
+      <section className='buttons'>
+        <div className='homeButtons'>
           <Button
             className={'homeButtons__touchdown'}
             text={'Home Touchdown'}
-            score={() => { setHomeScore(homeScore + 7); }}
+            score={homeTouchDown}
           />
           <Button
             className={'homeButtons__fieldGoal'}
             text={'Home Field Goal'}
-            score={() => { setHomeScore(homeScore + 3); }}
+            score={homeFieldGoal}
           />
         </div>
-        <div className="awayButtons">
+        <div className='awayButtons'>
           <Button
             className={'awayButtons__touchdown'}
             text={'Away Touchdown'}
-            score={() => { setAwayScore(awayScore + 7); }}
+            score={awayTouchDown}
           />
           <Button
             className={'awayButtons__fieldGoal'}
             text={'Away Field Goal'}
-            score={() => { setAwayScore(awayScore + 3); }}
+            score={awayFieldGoal}
           />
         </div>
       </section>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
